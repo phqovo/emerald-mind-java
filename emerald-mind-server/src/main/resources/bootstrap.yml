@@ -1,0 +1,30 @@
+server:
+  port: 15170
+spring:
+  application:
+    name: emerald-mind
+  cloud:
+    nacos:
+      discovery:
+        namespace: b05807d4-87e3-4e3e-9958-22173a567c21
+        group: DEFAULT_GROUP
+        server-addr: 103.133.178.118:8848
+        username: nacos
+        password: Qaz23069875.
+      config:
+        username: nacos
+        password: Qaz23069875.
+        # 配置所属命名空间的id，我们配置名称为dev的id，在命名空间列表查看id的值
+        namespace: b05807d4-87e3-4e3e-9958-22173a567c21
+        # 配置所属分组
+        group: DEFAULT_GROUP
+        # 后缀名，只支持 properties 和 yaml 类型
+        file-extension: yaml
+        # nacos服务器地址
+        server-addr: 103.133.178.118:8848
+        # 配置自动刷新
+        refresh-enabled: true
+        # 启用远程同步配置
+        enable-remote-sync-config: true
+    config:
+      import:${spring.application.name}.${spring.cloud.nacos.config.file-extension}
